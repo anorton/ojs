@@ -278,7 +278,6 @@
 	var $arrayClass = 'ADORecordSet_array'; /// name of class used to generate array recordsets, which are pre-downloaded recordsets
 	
 	var $noNullStrings = false; /// oracle specific stuff - if true ensures that '' is converted to ' '
-	var $numQueries = 0;
 	var $numCacheHits = 0; 
 	var $numCacheMisses = 0;
 	var $pageExecuteCountRows = true;
@@ -792,8 +791,6 @@
 	 */
 	function &Execute($sql,$inputarr=false) 
 	{
-		$this->numQueries++;
-		
 		if ($this->fnExecute) {
 			$fn = $this->fnExecute;
 			$ret =& $fn($this,$sql,$inputarr);

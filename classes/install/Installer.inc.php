@@ -242,7 +242,7 @@ class Installer {
 			$this->newVersion->setCurrent(1);
 		} else {
 			$this->newVersion = $this->currentVersion;
-		}	
+		}
 
 		// Parse descriptor
 		$this->parseInstallNodes($installTree);
@@ -368,8 +368,8 @@ class Installer {
 				$fileName = INSTALLER_DATA_DIR . '/'. $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				require_once('adodb/adodb-xmlschema.inc.php');
-				$schemaXMLParser = &new adoSchema($this->dbconn);
+				import('db.compat.AdodbXmlschemaCompat');
+				$schemaXMLParser = &new AdodbXmlschemaCompat($this->dbconn, $this->dbconn->charSet);				$dict =& $schemaXMLParser->dict;
 				$dict =& $schemaXMLParser->dict;
 				$dict->SetCharSet($this->dbconn->charSet);
 				$sql = $schemaXMLParser->parseSchema($fileName);

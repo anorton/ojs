@@ -95,7 +95,7 @@ class dbXMLtoSQL extends CommandLineTool {
 	 * See dbscripts/xml/xmlschema.dtd for the format of the XML files.
 	 */
 	function execute() {
-		require('adodb/adodb-xmlschema.inc.php');
+		import('db.compat.AdodbXmlschemaCompat');
 
 		if (in_array($this->command, array('print', 'save'))) {
 			// Don't connect to actual database (so parser won't build upgrade XML)
@@ -115,7 +115,7 @@ class dbXMLtoSQL extends CommandLineTool {
 			$dbconn = &DBConnection::getConn();
 		}
 
-		$schema = &new adoSchema($dbconn);
+		$schema = &new AdodbXmlschemaCompat($dbconn);
 		$dict =& $schema->dict;
 		$dict->SetCharSet(Config::getVar('i18n', 'database_charset'));
 

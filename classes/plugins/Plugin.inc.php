@@ -3,7 +3,7 @@
 /**
  * @defgroup plugins
  */
- 
+
 /**
  * @file classes/plugins/Plugin.inc.php
  *
@@ -93,7 +93,7 @@ class Plugin {
 		$localeFilename = $this->getLocaleFilename($locale);
 		if ($localeFilename) {
 			Locale::registerLocaleFile($locale, $this->getLocaleFilename($locale));
-                	HookRegistry::call('Plugin::addLocaleData', array(&$locale, &$localeFilename));
+					HookRegistry::call('Plugin::addLocaleData', array(&$locale, &$localeFilename));
 			return true;
 		}
 		return false;
@@ -252,7 +252,8 @@ class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$schemaXMLParser = &new adoSchema($installer->dbconn);
+ 		import('db.compat.AdodbXmlschemaCompat');
+ 		$schemaXMLParser = &new AdodbXmlschemaCompat($installer->dbconn, $installer->dbconn->charSet);
 		$dict =& $schemaXMLParser->dict;
 		$dict->SetCharSet($installer->dbconn->charSet);
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());

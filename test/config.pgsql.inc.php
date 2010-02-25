@@ -79,9 +79,9 @@ disable_path_info = Off
 
 driver = pgsql
 host = localhost
-username = ojs
-password = ojs
-name = ojs
+username = pkpojs
+password = pkpojs
+name = pkpojs
 
 ; Enable persistent connections (recommended)
 persistent = On

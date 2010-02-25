@@ -478,25 +478,5 @@ CREATE [ UNIQUE ] INDEX index_name ON table
 		}
 		return $ftype;
 	}
-	
-	// Functions for managing the database character encoding
-	// (for CREATE DATABASE, CREATE TABLE, etc.)
-	// Added 2004-06-20 by Kevin Jamieson (http://www.pkp.ubc.ca/)
-	// NOTE: If a character set is specified, assumes the database server supports this
-	function CreateDatabase($dbname,$options=false)
-	{
-		$options = $this->_Options($options);
-		$sql = array();
-		
-		$s = 'CREATE DATABASE ' . $this->NameQuote($dbname);
-		if (isset($options[$this->upperName]))
-			$s .= ' '.$options[$this->upperName];
-		if ($this->charSet)
-			$s .= sprintf(' WITH ENCODING \'%s\'', $this->charSet);
-		if (7.3 <= (float) @$this->serverInfo['version'])
-			$s .= ' TEMPLATE template0'; // Deal with "template1 is being accessed by other users" errors (FIXME?)
-		$sql[] = $s;
-		return $sql;
-	}
 }
 ?>

@@ -3,7 +3,7 @@
 /**
  * @defgroup install_form
  */
- 
+
 /**
  * @file classes/install/form/InstallForm.inc.php
  *
@@ -128,21 +128,16 @@ class InstallForm extends Form {
 	 * Initialize form data.
 	 */
 	function initData() {
-		$cwd = getcwd();
-		if (Core::isWindows()) {
-			// Replace backslashes with slashes for the default files directory.
-			$cwd = str_replace('\\', '/', $cwd);
-		}
-
+		// We use Debian specific defaults.
 		$this->_data = array(
 			'locale' => Locale::getLocale(),
 			'additionalLocales' => array(),
 			'clientCharset' => 'utf-8',
-			'connectionCharset' => '',
-			'databaseCharset' => '',
-			'encryption' => 'md5',
-			'filesDir' =>  $cwd . '/files',
-			'skipFilesDir' =>  0,			
+			'connectionCharset' => 'utf8',
+			'databaseCharset' => 'utf8',
+			'encryption' => 'sha1',
+			'filesDir' =>  '/var/lib/ojs/files',
+			'skipFilesDir' =>  0,
 			'databaseDriver' => 'mysql',
 			'databaseHost' => 'localhost',
 			'databaseUsername' => 'ojs',
@@ -164,7 +159,7 @@ class InstallForm extends Form {
 			'connectionCharset',
 			'databaseCharset',
 			'filesDir',
-			'skipFilesDir',			
+			'skipFilesDir',
 			'encryption',
 			'adminUsername',
 			'adminPassword',
@@ -222,7 +217,7 @@ class InstallForm extends Form {
 	/**
 	 * Check if database drivers have the required PHP module loaded.
 	 * The names of drivers that appear to be unavailable are bracketed.
-	 * @return array 
+	 * @return array
 	 */
 	function checkDBDrivers() {
 		$dbDrivers = array();

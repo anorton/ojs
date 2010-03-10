@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * library abstracts plugin localization strings for the en_US (U.S. English) locale.
+  *
+  * $Id$
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+
+	<message key="plugins.generic.library.displayName">Library</message>
+	<message key="plugins.generic.library.description">Adds multi-journal Library/Bookshelf capabilities to OJS.</message>
+	<message key="plugins.generic.library.enabled">The Library Plugin has been enabled.</message>
+	<message key="plugins.generic.library.disabled">The Library Plugin has been disabled.</message>
+	<message key="plugins.generic.library.headerLink"><![CDATA[My Library]]></message>
+	<message key="plugins.generic.library.myLibrary">My Library</message>
+	<message key="plugins.generic.library.bookshelves">Bookshelves</message>
+	<message key="plugins.generic.library.bookshelf">Bookshelf</message>
+	<message key="plugins.generic.library.createBookshelf">Create Bookshelf</message>
+	<!-- library Abstract Management 
+	<message key="plugins.generic.library.manager.settings">Settings</message>
+	<message key="plugins.generic.library.manager.theses">library Abstracts</message>
+	<message key="plugins.generic.library.manager.status">Status</message>
+	<message key="plugins.generic.library.manager.status.inactive">Inactive</message>
+	<message key="plugins.generic.library.manager.status.active">Active</message>
+	<message key="plugins.generic.library.manager.degree">Degree</message>
+	<message key="plugins.generic.library.manager.degree.masters">Master's</message>
+	<message key="plugins.generic.library.manager.degree.doctorate">Doctorate</message>
+	<message key="plugins.generic.library.manager.dateApproved">Approval Date</message>
+	<message key="plugins.generic.library.manager.studentName">Student Name</message>
+	<message key="plugins.generic.library.manager.title">Title</message>
+	<message key="plugins.generic.library.manager.keyword">Keyword</message>
+	<message key="plugins.generic.library.manager.studentFirstName">First name</message>
+	<message key="plugins.generic.library.manager.studentLastName">Last name</message>
+	<message key="plugins.generic.library.manager.studentEmail">Email</message>
+	<message key="plugins.generic.library.manager.department">Department</message>
+	<message key="plugins.generic.library.manager.university">University</message>
+	<message key="plugins.generic.library.manager.abstract">Abstract</message>
+	<message key="plugins.generic.library.manager.confirmDelete">Are you sure you want to permanently delete this library abstract?</message>
+	<message key="plugins.generic.library.manager.noneCreated">No library Abstracts</message>
+	<message key="plugins.generic.library.manager.noResults">No Results</message>
+	<message key="plugins.generic.library.manager.create">Create New library Abstract</message>
+	<message key="plugins.generic.library.manager.createTitle">Create</message>
+	<message key="plugins.generic.library.manager.edit">Edit library Abstract</message>
+	<message key="plugins.generic.library.manager.editTitle">Edit</message>
+	<message key="plugins.generic.library.manager.form.status">Status</message>
+	<message key="plugins.generic.library.manager.form.statusRequired">A library abstract status is required.</message>
+	<message key="plugins.generic.library.manager.form.statusValid">Please select a valid status.</message>
+	<message key="plugins.generic.library.manager.form.degree">Degree</message>
+	<message key="plugins.generic.library.manager.form.degreeRequired">A library degree is required.</message>
+	<message key="plugins.generic.library.manager.form.degreeValid">Please select a valid degree.</message>
+	<message key="plugins.generic.library.manager.form.degreeName">Degree name</message>
+	<message key="plugins.generic.library.manager.form.degreeNameRequired">A library degree name is required.</message>
+	<message key="plugins.generic.library.manager.form.degreeNameInstructions">The name of the degree (i.e. Master's of Arts, Doctor of Philosophy, etc.).</message>
+	<message key="plugins.generic.library.manager.form.department">Department</message>
+	<message key="plugins.generic.library.manager.form.departmentRequired">A department is required.</message>
+	<message key="plugins.generic.library.manager.form.university">University</message>
+	<message key="plugins.generic.library.manager.form.universityRequired">A university is required.</message>
+	<message key="plugins.generic.library.manager.form.dateApproved">Approval date</message>
+	<message key="plugins.generic.library.manager.form.dateApprovedRequired">An approval date is required.</message>
+	<message key="plugins.generic.library.manager.form.dateApprovedValid">Please select a valid approval date.</message>
+	<message key="plugins.generic.library.manager.form.title">Title</message>
+	<message key="plugins.generic.library.manager.form.titleRequired">A library title is required.</message>
+	<message key="plugins.generic.library.manager.form.comment">Comments</message>
+	<message key="plugins.generic.library.manager.form.author">Author and Supervision</message>
+	<message key="plugins.generic.library.manager.form.studentEmailPublish">Publish student email</message>
+	<message key="plugins.generic.library.manager.form.studentEmailPublishInstructions">If checked, the student email will be published with the library abstract.</message>
+	<message key="plugins.generic.library.manager.form.studentBio">Student bio statement</message>
+	<message key="plugins.generic.library.manager.form.studentBioInstructions"><![CDATA[Insert blank lines to seperate paragraphs. Place text between &lt;b&gt;&lt;/b&gt;, &lt;i&gt;&lt;/i&gt;, and &lt;u&gt;&lt;/u&gt; tags to bold, italicize, and underline, respectively (i.e. this &lt;i&gt;word&lt;/i&gt; will be italicized.)]]></message>
+	<message key="plugins.generic.library.manager.form.indexing">Indexing</message>
+	<message key="plugins.generic.library.manager.form.indexingDescription">Choose terms that best describe the library content following the categories used by this journal. Separate terms with a semi-colon (term1; term2; term3).</message>
+	<message key="plugins.generic.library.manager.form.discipline">Academic discipline and sub-disciplines</message>
+	<message key="plugins.generic.library.manager.form.subjectClass">Subject classification</message>
+	<message key="plugins.generic.library.manager.form.keyword">Keywords</message>
+	<message key="plugins.generic.library.manager.form.coverageGeo">Geo-spatial coverage</message>
+	<message key="plugins.generic.library.manager.form.coverageChron">Chronological or historical coverage</message>
+	<message key="plugins.generic.library.manager.form.coverageSample">Research sample characteristics</message>
+	<message key="plugins.generic.library.manager.form.method">Type, method or approach</message>
+	<message key="plugins.generic.library.manager.form.language">Language</message>
+	<message key="plugins.generic.library.manager.form.languageInstructions"><![CDATA[English=en; French=fr; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">Additional codes</a>.]]></message>
+	<message key="plugins.generic.library.manager.form.urlPrefixIncluded">Please provide the full URL, including the http:// or ftp:// at the start.</message>
+	<message key="plugins.generic.library.manager.form.abstract">Abstract</message>
+	<message key="plugins.generic.library.manager.form.abstractRequired">A library abstract is required.</message>
+	<message key="plugins.generic.library.manager.form.abstractInstructions"><![CDATA[Insert blank lines to seperate paragraphs. Place text between &lt;b&gt;&lt;/b&gt;, &lt;i&gt;&lt;/i&gt;, and &lt;u&gt;&lt;/u&gt; tags to bold, italicize, and underline, respectively (i.e. this &lt;i&gt;word&lt;/i&gt; will be italicized.)]]></message>
+	<message key="plugins.generic.library.manager.form.url">URL</message>
+	<message key="plugins.generic.library.manager.form.urlInstructions">If library is published online. Include http://, ftp://, etc. at the start (i.e. http://www.sfu.ca/path/to/library.pdf).</message>
+	<message key="plugins.generic.library.manager.form.studentFirstName">Student first name</message>
+	<message key="plugins.generic.library.manager.form.studentFirstNameRequired">The student's first name is required.</message>
+	<message key="plugins.generic.library.manager.form.studentLastName">Student last name</message>
+	<message key="plugins.generic.library.manager.form.studentLastNameRequired">The student's last name is required.</message>
+	<message key="plugins.generic.library.manager.form.studentMiddleName">Student middle name</message>
+	<message key="plugins.generic.library.manager.form.studentEmail">Student email</message>
+	<message key="plugins.generic.library.manager.form.studentEmailValid">A valid student's email is required.</message>
+	<message key="plugins.generic.library.manager.form.supervisorFirstName">Supervisor first name</message>
+	<message key="plugins.generic.library.manager.form.supervisorFirstNameRequired">The supervisor's first name is required.</message>
+	<message key="plugins.generic.library.manager.form.supervisorLastName">Supervisor last name</message>
+	<message key="plugins.generic.library.manager.form.supervisorLastNameRequired">The supervisor's last name is required.</message>
+	<message key="plugins.generic.library.manager.form.supervisorMiddleName">Supervisor middle name</message>
+	<message key="plugins.generic.library.manager.form.supervisorEmail">Supervisor email</message>
+	<message key="plugins.generic.library.manager.form.supervisorEmailValid">A valid supervisor's email is required.</message>
+	<message key="plugins.generic.library.manager.form.saveAndCreateAnother">Save and Create Another</message>
+	-->
+	<!-- library Abstract Settings Management 
+	<message key="plugins.generic.library.settings.description"><![CDATA[<p>With this plugin enabled students may submit their library abstracts to the journal using an online submission form.</p><p>Upon submission, the library senior supervisor is automatically notified by email of the abstract submission and asked to confirm the accuracy of the submitted information by sending an email response to the library Abstracts Contact listed below, who needs to be a Journal Manager. Once this confirmation is received, the library Abstracts Contact can activate the library abstract submission by editing its corresponding record and changing the Status from 'Inactive' to 'Active'. The library abstract will then become available to journal readers.</p>]]></message>
+	<message key="plugins.generic.library.settings.libraryContact">library Abstracts Contact</message>
+	<message key="plugins.generic.library.settings.submissions">Submissions</message>
+	<message key="plugins.generic.library.settings.uploadCode">Use the following upload code for department submissions:</message>
+	<message key="plugins.generic.library.settings.uploadCodeDescription">An upload code (a sequence of letters or numbers) can be distributed to departments that wish to upload library abstracts on behalf of students. When the upload code is submitted by a department, an automatic email will not be sent to the supervisor for verification of the submission.</message>
+	<message key="plugins.generic.library.settings.uploadCodeRequired">Please enter an upload code.</message>
+	<message key="plugins.generic.library.settings.publishing">Publishing</message>
+	<message key="plugins.generic.library.settings.order">Publish Order</message>
+	<message key="plugins.generic.library.settings.order.submissionDateAsc">Submission date (ascending)</message>
+	<message key="plugins.generic.library.settings.order.submissionDateDesc">Submission date (descending)</message>
+	<message key="plugins.generic.library.settings.order.approvalDateAsc">Approval date (ascending)</message>
+	<message key="plugins.generic.library.settings.order.approvalDateDesc">Approval date (descending)</message>
+	<message key="plugins.generic.library.settings.order.lastNameAsc">Student last name (ascending)</message>
+	<message key="plugins.generic.library.settings.order.lastNameDesc">Student last name (descending)</message>
+	<message key="plugins.generic.library.settings.order.titleAsc">Title (ascending)</message>
+	<message key="plugins.generic.library.settings.order.titleDesc">Title (descending)</message>
+	<message key="plugins.generic.library.settings.libraryIntroduction">Introductory Statement</message>
+	<message key="plugins.generic.library.settings.libraryIntroductionDescription">An introductory statement that will appear at the top of the library Abstracts page.</message>
+	<message key="plugins.generic.library.settings.libraryNameRequired">A library Abstract Contact name must be specified.</message>
+	<message key="plugins.generic.library.settings.libraryEmailRequired">A library Abstract Contact email must be specified.</message>
+	<message key="plugins.generic.library.settings.libraryOrderValid">Please select a valid publishing order.</message>
+	-->
+	<!-- library Abstracts
+
+
+	<message key="plugins.generic.library.searchLink">Search library Abstracts</message>
+	<message key="plugins.generic.library.theses">library Abstracts</message>
+	<message key="plugins.generic.library.headerLink"><![CDATA[library&nbsp;Abstracts]]></message>
+	<message key="plugins.generic.library.submit">Submit library Abstract</message>
+	<message key="plugins.generic.library.submitLink">Submit library Abstract</message>
+	<message key="plugins.generic.library.submitButton">Submit</message>
+	<message key="plugins.generic.library.view">Abstract</message>
+	<message key="plugins.generic.library.viewTitle">Abstract</message>
+	<message key="plugins.generic.library.noneExist">No library Abstracts</message>
+	<message key="plugins.generic.library.noResults">No Results</message>
+	<message key="plugins.generic.library.title">Title</message>
+	<message key="plugins.generic.library.keyword">Keyword</message>
+	<message key="plugins.generic.library.studentFirstName">First name</message>
+	<message key="plugins.generic.library.studentLastName">Last name</message>
+	<message key="plugins.generic.library.department">Department</message>
+	<message key="plugins.generic.library.university">University</message>
+	<message key="plugins.generic.library.abstract">Abstract</message>
+	<message key="plugins.generic.library.fullText">Full text (external site)</message>
+	<message key="plugins.generic.library.studentFullNameLast">{$lastName}, {$firstName}{$space}{$middleName}</message>
+	<message key="plugins.generic.library.studentFullName">{$firstName} {$middleName}{$space}{$lastName}</message>
+	<message key="plugins.generic.library.supervisorFullNameLast">{$lastName}, {$firstName}{$space}{$middleName}</message>
+	<message key="plugins.generic.library.supervisorFullName">{$firstName} {$middleName}{$space}{$lastName}</message>
+	<message key="plugins.generic.library.form.introduction">Upon submission of the following form, the library supervisor will be emailed and asked to verify the accuracy of the submitted information. Once this verification has been received by the journal, the library abstract will be published online.</message>
+	<message key="plugins.generic.library.form.status">Status</message>
+	<message key="plugins.generic.library.form.statusValid">Please select a valid status.</message>
+	<message key="plugins.generic.library.form.degree">Degree</message>
+	<message key="plugins.generic.library.form.degreeRequired">A library degree is required.</message>
+	<message key="plugins.generic.library.form.degreeValid">Please select a valid degree.</message>
+	<message key="plugins.generic.library.form.degreeName">Degree name</message>
+	<message key="plugins.generic.library.form.degreeNameRequired">A library degree name is required.</message>
+	<message key="plugins.generic.library.form.degreeNameInstructions">The name of the degree (i.e. Master's of Arts, Doctor of Philosophy, etc.).</message>
+	<message key="plugins.generic.library.form.department">Department</message>
+	<message key="plugins.generic.library.form.departmentRequired">A department is required.</message>
+	<message key="plugins.generic.library.form.university">University</message>
+	<message key="plugins.generic.library.form.universityRequired">A university is required.</message>
+	<message key="plugins.generic.library.form.dateApproved">Approval date</message>
+	<message key="plugins.generic.library.form.dateApprovedRequired">An approval date is required.</message>
+	<message key="plugins.generic.library.form.dateApprovedValid">Please select a valid approval date.</message>
+	<message key="plugins.generic.library.form.title">Title</message>
+	<message key="plugins.generic.library.form.titleRequired">A library title is required.</message>
+	<message key="plugins.generic.library.form.comment">Comments</message>
+	<message key="plugins.generic.library.form.commentInstructions">Please include any additional comments that may be relevant to your submission.</message>
+	<message key="plugins.generic.library.form.author">Author and Supervision</message>
+	<message key="plugins.generic.library.form.studentBio">Student bio statement</message>
+	<message key="plugins.generic.library.form.studentBioInstructions"><![CDATA[Insert blank lines to seperate paragraphs. Place text between &lt;b&gt;&lt;/b&gt;, &lt;i&gt;&lt;/i&gt;, and &lt;u&gt;&lt;/u&gt; tags to bold, italicize, and underline, respectively (i.e. this &lt;i&gt;word&lt;/i&gt; will be italicized).]]></message>
+	<message key="plugins.generic.library.form.indexing">Indexing</message>
+	<message key="plugins.generic.library.form.indexingDescription">Choose terms that best describe the library content following the categories used by this journal. Separate terms with a semi-colon (term1; term2; term3).</message>
+	<message key="plugins.generic.library.form.discipline">Academic discipline and sub-disciplines</message>
+	<message key="plugins.generic.library.form.subjectClass">Subject classification</message>
+	<message key="plugins.generic.library.form.keyword">Keywords</message>
+	<message key="plugins.generic.library.form.coverageGeo">Geo-spatial coverage</message>
+	<message key="plugins.generic.library.form.coverageChron">Chronological or historical coverage</message>
+	<message key="plugins.generic.library.form.coverageSample">Research sample characteristics</message>
+	<message key="plugins.generic.library.form.method">Type, method or approach</message>
+	<message key="plugins.generic.library.form.language">Language</message>
+	<message key="plugins.generic.library.form.languageInstructions"><![CDATA[English=en; French=fr; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">Additional codes</a>.]]></message>
+	<message key="plugins.generic.library.form.urlPrefixIncluded">Please provide the full URL, including the http:// or ftp:// at the start.</message>
+	<message key="plugins.generic.library.form.abstract">Abstract</message>
+	<message key="plugins.generic.library.form.abstractRequired">A library abstract is required.</message>
+	<message key="plugins.generic.library.form.abstractInstructions"><![CDATA[Insert blank lines to seperate paragraphs. Place text between &lt;b&gt;&lt;/b&gt;, &lt;i&gt;&lt;/i&gt;, and &lt;u&gt;&lt;/u&gt; tags to bold, italicize, and underline, respectively (i.e. this &lt;i&gt;word&lt;/i&gt; will be italicized).]]></message>
+	<message key="plugins.generic.library.form.url">URL</message>
+	<message key="plugins.generic.library.form.urlInstructions">If library is published online. Include http:// or ftp:// at the start (i.e. http://www.sfu.ca/path/to/library.pdf).</message>
+	<message key="plugins.generic.library.form.uploadCode">Upload code</message>
+	<message key="plugins.generic.library.form.uploadCodeInstructions">For department use only.</message>
+	<message key="plugins.generic.library.form.studentFirstName">Student first name</message>
+	<message key="plugins.generic.library.form.studentFirstNameRequired">The student's first name is required.</message>
+	<message key="plugins.generic.library.form.studentLastName">Student last name</message>
+	<message key="plugins.generic.library.form.studentLastNameRequired">The student's last name is required.</message>
+	<message key="plugins.generic.library.form.studentMiddleName">Student middle name</message>
+	<message key="plugins.generic.library.form.studentEmail">Student email</message>
+	<message key="plugins.generic.library.form.studentEmailValid">A valid student's email is required.</message>
+	<message key="plugins.generic.library.form.studentEmailPublish">Publish student email</message>
+	<message key="plugins.generic.library.form.studentEmailPublishInstructions">If checked, the student email will be published with the library abstract.</message>
+	<message key="plugins.generic.library.form.supervisorFirstName">Supervisor first name</message>
+	<message key="plugins.generic.library.form.supervisorFirstNameRequired">The supervisor's first name is required.</message>
+	<message key="plugins.generic.library.form.supervisorLastName">Supervisor last name</message>
+	<message key="plugins.generic.library.form.supervisorLastNameRequired">The supervisor's last name is required.</message>
+	<message key="plugins.generic.library.form.supervisorMiddleName">Supervisor Middle Name</message>
+	<message key="plugins.generic.library.form.supervisorEmail">Supervisor email</message>
+	<message key="plugins.generic.library.form.supervisorEmailValid">A valid supervisor's email is required.</message>
+	-->
+</locale>

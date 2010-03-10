@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schema SYSTEM "../../../lib/pkp/dtd/xmlSchema.dtd">
+
+<!--
+  * schema.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Library plugin schema in XML.
+  *
+  * $Id: schema.xml,v 1.9 2009/04/08 19:54:42 asmecher Exp $
+  -->
+
+<schema version="0.2">
+
+
+<!--
+	  *
+	  * TABLE libraries
+	  * create table libraries (library_id BIGINT NOT NULL AUTO_INCREMENT UNIQUE, user_id BIGINT NOT NULL);
+	  *
+	  -->
+	<table name="libraries">
+		<field name="library_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="user_id" type="I8">
+			<NOTNULL />
+		</field>
+	</table>
+	
+	<!--
+	  *
+	  * TABLE bookshelves
+	  * create table bookshelves (bookshelf_id BIGINT NOT NULL AUTO_INCREMENT, library_id BIGINT NOT NULL,
+	  * 						name CHAR(30) NOT NULL)
+	  *
+	  -->
+	<table name="bookshelves">
+		<field name="bookshelf_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="library_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="name" type="C" size="30">
+			<NOTNULL />
+		</field>	
+	</table>
+	
+	<!--
+	  *
+	  * TABLE bookshelved_items
+	  * create table bookshelved_items (item_id BIGINT NOT NULL AUTO_INCREMENT UNIQUE KEY, bookshelf_id BIGINT NOT NULL, 
+	  * 	article_id BIGINT NOT NULL, journal_id BIGINT NOT NULL, journal_base_url VARCHAR(1024) NOT NULL)
+	  *
+	  -->
+	<table name="bookshelved_items">
+		<field name="item_id" type="I8">
+			<KEY />
+			<NOTNULL />
+			<AUTOINCREMENT />
+		</field>
+		<field name="bookshelf_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="article_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="journal_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="journal_base_url" type="C2" size="1024">
+			<NOTNULL />
+		</field>
+	</table>
+	
+	<!--
+	  *
+	  * TABLE bookshelved_article_notes
+	  * create table bookshelved_item_notes (note_id BIGINT NOT NULL AUTO_INCREMENT UNIQUE KEY, item_id BIGINT NOT NULL, 
+	  *		article_id BIGINT NOT NULL, is_private BOOL default TRUE, last_edited DATETIME NOT NULL, 
+	  *		note_text MEDIUMTEXT CHARSET utf8)
+	  *
+	  -->
+	<table name="bookshelved_item_notes">
+		<field name="note_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT />
+			<NOTNULL />
+		</field>
+		<field name="item_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="article_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="is_private" type="L" />
+		<!-- FIXME PREE: add default to is-private -->
+		<field name="last_edited" type="T" />
+		<field name="note_text" type="X" />
+	</table>
+	-->
+	
+</schema>

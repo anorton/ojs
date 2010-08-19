@@ -5,7 +5,7 @@
  */
 
 /**
- * @file classes/library/BookshelvedArticle.inc.php
+ * @file plugins/generic/library/BookshelvedArticle.inc.php
  *
  * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -25,6 +25,7 @@ import('article.Article');
 class BookshelvedArticle extends Article {
 	var $baseUrl = "";
 	var $bookshelvedItemsId = "";
+	var $note = "";
 
 	/**
 	 * Constructor.
@@ -48,6 +49,15 @@ class BookshelvedArticle extends Article {
 	function getBookshelvedItemsId() {
 		return $this->$bookshelvedItemsId;
 	}
+	
+	function setNote(&$note) {
+		$this->note = $note;
+	}
+	
+	function getNote() {
+			return $this->note;
+	}
+	
 }
 
 ?>

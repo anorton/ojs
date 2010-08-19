@@ -27,10 +27,10 @@
 {if $articleList}
 	<!--list items on bookshelf-->
 	<h4>Contents:</h4>
-	<p>Click on table headings to sort.</p>
+	
 	<form name="adminBookshelfForm" method="post" action="{url page="library" op="adminBookshelf"}">
 		<input type="hidden" name="bookshelfId" value="{$bookshelf->getBookshelfId()}" />
-		<input type="submit" name="submitBtn" value="Remove Selected Articles" />			
+		Click on table headings to sort. 
 		<table width="100%" class="sortable">
 			<tr>
 				<th>Select</th>
@@ -41,11 +41,10 @@
 				{foreach from=$articleList item=article}
 					<tr>
 						<td><input type="checkbox" name="selectArticles[]" value="{$article->bookshelvedItemsId}" /></td>
-						<td><a href="{$article->baseUrl}/article/view/{$article->getArticleId()}">{$article->getArticleTitle()}</a></td>
+						<td><a href="{$article->baseUrl}/article/view/{$article->getArticleId()}">{$article->getArticleTitle()}</a><br/>{$article->getNote()}</td>
 						<td>{$article->getAuthorString()}</td>
 						<td>{$article->getLastModified()}</td>
-
-					</tr>		
+					</tr>
 				{/foreach}
 		</table>
 		<input type="submit" name="submitBtn" value="Remove Selected Articles" />

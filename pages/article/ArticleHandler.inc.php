@@ -389,6 +389,12 @@ class ArticleHandler extends Handler {
 				$templateMgr->assign_by_ref('version', $version);
 			}
 		}
+		
+		// Library setup
+		$user =& Request::getUser();
+		$libraryDao =& DAORegistry::getDAO('LibraryDAO');
+		$bookshelves = $libraryDao->getBookshelvesForUser(&$user);
+		$templateMgr->assign('bookshelfList',$bookshelves);
 
 		$templateMgr->display('rt/rt.tpl');
 	}

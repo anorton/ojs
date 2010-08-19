@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LibraryPlugin
- * @ingroup plugins_generic_thesis
+ * @ingroup plugins_generic_library
  *
  * @brief Library plugin class
  */
@@ -32,6 +32,11 @@ class LibraryPlugin extends GenericPlugin {
 			$this->import('LibraryDAO');
 			$libraryDao = new LibraryDAO();
 			$returner =& DAORegistry::registerDAO('LibraryDAO', $libraryDao);
+			
+			$this->import('BookshelvedArticleDAO');
+			$bookshelvedArticleDao = new BookshelvedArticleDAO();
+			$returner =& DAORegistry::registerDAO('BookshelvedArticleDAO', $bookshelvedArticleDao);
+			
 			// Handler for public thesis abstract pages
 			HookRegistry::register('LoadHandler', array($this, 'setupPublicHandler'));
 
@@ -40,9 +45,6 @@ class LibraryPlugin extends GenericPlugin {
 
 			// Journal Manager link to thesis abstract management pages
 			HookRegistry::register('Templates::Manager::Index::ManagementPages', array($this, 'callback'));
-
-			// Search results link to thesis abstract page
-			// HookRegistry::register('Templates::Search::SearchResults::PreResults', array($this, 'displaySearchLink'));
 		}
 		return $success;
 	}

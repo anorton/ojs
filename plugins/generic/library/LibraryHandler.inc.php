@@ -17,6 +17,7 @@
 
 import('handler.Handler');
 
+
 class LibraryHandler extends Handler {
 	/**
 	 * Constructor
@@ -76,17 +77,17 @@ class LibraryHandler extends Handler {
 		}
 	}
 
-function addArticleToBookshelf($args) {
+	function addArticleToBookshelf($args) {
 		$user =& Request::getUser();
 		$journal =& Request::getJournal();
 		$journalId = $journal->getJournalId();
 		$journalBaseUrl = $journal->getUrl();
 		$bookshelfId = Request::getUserVar('bookshelfId');
 		$articleId = Request::getUserVar('articleId');
+		$note = Request::getUserVar('libNote');
 
 		$libraryDao =& DAORegistry::getDAO('LibraryDAO');
-		
-		$response = $libraryDao->addArticleToBookshelf($articleId, $bookshelfId, $journalId, $journalBaseUrl);
+		$response = $libraryDao->addArticleToBookshelf($articleId, $bookshelfId, $journalId, $journalBaseUrl, $note);
 		
 		Request::Redirect(null, 'library', 'viewBookshelf', $bookshelfId);
 
@@ -142,7 +143,7 @@ function addArticleToBookshelf($args) {
 			// Add font sizer js and css if not already in header
 			$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
 			if (strpos(strtolower($additionalHeadData), 'sorttable.js') === false) {
-				$additionalHeadData .= $templateMgr->fetch('common/sorttable.tpl');
+				$additionalHeadData .= $templateMgr->fetch($libraryPlugin->getTemplatePath() . 'sorttable.tpl');
 				$templateMgr->assign('additionalHeadData', $additionalHeadData);
 			}
 			
@@ -157,7 +158,6 @@ function addArticleToBookshelf($args) {
 		$user =& Request::getUser();
 		$userId = $user->getId();
 		$bookshelfName = Request::getUserVar('bookshelfName');
-		$libraryDao =& DAORegistry::getDAO('LibraryDAO');
 		$libraryDao =& DAORegistry::getDAO('LibraryDAO');
 		$library = $libraryDao->getLibraryForUser($userId);
 		$libraryId = $library->getLibraryId();

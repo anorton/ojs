@@ -16,8 +16,7 @@
 // $Id: LibraryDAO.inc.php,v 1.50 2009/06/03 22:24:34 asmecher Exp $
 
 import('db.DAO');
-//import('user.User');
-//import('library.Library');
+
 
 class LibraryDAO extends DAO {
 	
@@ -159,13 +158,17 @@ class LibraryDAO extends DAO {
 	 * @param $bookshelfId bookshelf_id
 	 */	
 	function &getBookshelfContents($bookshelfId){
+		$libraryPlugin =& PluginRegistry::getPlugin('generic', 'LibraryPlugin');
+		$libraryPlugin->import('BookshelvedArticle');
+		$bookshelvedArticleDao =& DAORegistry::getDAO('BookshelvedArticleDAO');	
+	
 		$result =& $this->retrieve(
-			'SELECT bookshelved_items.item_id, bookshelved_items.bookshelf_id, bookshelved_items.journal_base_url, articles.article_id, articles.journal_id 
+			'SELECT bookshelved_items.item_id, bookshelved_items.bookshelf_id, bookshelved_items.journal_base_url, bookshelved_items.note, articles.article_id, articles.journal_id 
 			FROM bookshelved_items 
 			INNER JOIN articles 
 			ON bookshelved_items.article_id = articles.article_id
 			WHERE bookshelved_items.bookshelf_id = ?', $bookshelfId);
-				
+
 		$bookshelfList = array();
 		$i = 0;
 		while (!$result->EOF) {
@@ -196,10 +199,12 @@ class LibraryDAO extends DAO {
 	 *
 	 * @param $article Article, $bookshelf Bookshelf, $journal Journal
 	 */
-	function addArticleToBookshelf(&$articleId, &$bookshelfId, &$journalId, &$journalBaseUrl) {
+	function addArticleToBookshelf(&$articleId, &$bookshelfId, &$journalId, &$journalBaseUrl, &$note) {
 		$this->update(
-			'INSERT INTO bookshelved_items SET article_id = ?, bookshelf_id = ?, journal_id = ?, journal_base_url = ?', 
-			array($articleId, $bookshelfId, $journalId, $journalBaseUrl));
+			'INSERT INTO bookshelved_items SET article_id = ?, bookshelf_id = ?, journal_id = ?, journal_base_url = ?, note = ?', 
+			array($articleId, $bookshelfId, $journalId, $journalBaseUrl, $note));
+		
+			
 	}
 	
 	/**
@@ -236,17 +241,23 @@ class LibraryDAO extends DAO {
 	 * @return Comment object
 	 */
 	function &_returnBookshelvedArticleFromRow($row) {
+		$libraryPlugin =& PluginRegistry::getPlugin('generic', 'LibraryPlugin');
+		$libraryPlugin->import('BookshelvedArticle');
+		$articleDao =& DAORegistry::getDAO('BookshelvedArticleDAO');
+
 		$articleId = $row['article_id'];
 		$journalId = $row['journal_id'];
 		$baseUrl = $row['journal_base_url'];
 		$itemId = $row['item_id'];
+		$note = $row['note'];
 		
 		$article = new BookshelvedArticle();
 		
-		$articleDao =& DAORegistry::getDAO('BookshelvedArticleDAO');
+		
 		$article = $articleDao->getArticle($articleId, $journalId);
 		$article->setBaseUrl($baseUrl);
 		$article->setBookshelvedItemsId($itemId);
+		$article->setNote($note);
 
 		return $article;
 	}

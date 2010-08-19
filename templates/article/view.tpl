@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
 	{$additionalHeadData}
 </head>
-<frameset cols="*,180" style="border: 0;">
+<frameset cols="*,250" style="border: 0;">
 	{if !$galley}
 		{url|assign:"articleUrl" op="viewArticle" path=$articleId}
 		{url|assign:"rstUrl" op="viewRST" path=$articleId}

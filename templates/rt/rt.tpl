@@ -33,7 +33,7 @@
 <body>
 
 <div id="container">
-<div id="main" style="width: 150px; font-size: 0.7em; padding-top: 1.5em; padding-left: 1em">
+<div id="main" style="width: 225px; font-size: 0.7em; padding-top: 1.5em; padding-left: 1em">
 
 <h5>{$journal->getLocalizedInitials()|escape}{if $issue}<br />{$issue->getIssueIdentification()|strip_unsafe_html|nl2br}{/if}</h5>
 
@@ -43,7 +43,7 @@
 
 <div class="rtSeparator"></div>
 
-<h6>{$article->getLocalizedTitle()|strip_unsafe_html|truncate:20:"...":true}</h6>
+<h6>{$article->getLocalizedTitle()|strip_unsafe_html|truncate:50:"...":true}</h6>
 <p><em>{$article->getAuthorString(true)|escape}</em></p>
 
 <div class="rtSeparator"></div>
@@ -160,6 +160,34 @@
 <p><em style="font-size: 0.9em">{translate key="rt.email.needLogin" loginUrl=$loginUrl}</em></p>
 {/if}
 
+<!-- My Library Menu -->
+<br />
+<br />
+<h5>My Library</h5>
+<div class="rtSeparator"></div>
+<div class="rtBlock">
+	<br />
+	<span class="rtSubtitle">Add Article to Bookshelf:</span>
+	<div id="addArticleToBookshelf">
+		<form action="{url page="library" op="addArticleToBookshelf"}" target="_parent" method="post" name="addToBookshelf">
+			<input type="hidden" name="articleId" value="{$article->getArticleId()}" />
+			<select name="bookshelfId">
+				{if $bookshelfList}
+					{foreach from=$bookshelfList item=bookshelf}
+						<option value="{$bookshelf->getBookshelfId()}">{$bookshelf->getBookshelfName()}</option>
+					{/foreach}
+				{else}
+					<option value="_createNew_Bookshelf">&lt;create new bookshelf&gt;</option>
+				{/if}
+			</select><br />
+				<span class="rtSubtitle">Note:</span><br />
+			<textarea name="libNote" rows="6" cols="20" onFocus="this.value=''; this.onfocus=null;">Enter an optional note to be attached to this Bookshelf Item.</textarea><br />
+			<input type="submit" value="Add" />
+		</form>
+	</div>
+
+	
+</div>
 </div>
 
 </div>

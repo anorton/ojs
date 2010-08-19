@@ -16,7 +16,6 @@
 // $Id: ArticleDAO.inc.php,v 1.63 2009/07/23 03:11:42 jalperin Exp $
 
 
-import('library.BookshelvedArticle');
 
 class BookshelvedArticleDAO extends DAO {
 	var $authorDao;
